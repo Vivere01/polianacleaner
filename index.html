@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Poliana House Cleaner | Limpeza Profissional com Toque Pessoal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "on-tertiary": "#303030",
+                        "outline-variant": "#5a3f47",
+                        "tertiary": "#c8c6c5",
+                        "on-primary": "#650032",
+                        "surface-bright": "#383939",
+                        "surface-container": "#1e2020",
+                        "on-secondary-container": "#bab8b7",
+                        "primary-fixed-dim": "#ffb1c7",
+                        "inverse-surface": "#e3e2e2",
+                        "primary-container": "#ff4993",
+                        "on-background": "#e3e2e2",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#474646",
+                        "surface-variant": "#343535",
+                        "surface-dim": "#121414",
+                        "secondary-container": "#4a4949",
+                        "on-surface": "#e3e2e2",
+                        "on-surface-variant": "#e2bdc6",
+                        "error": "#ffb4ab",
+                        "surface-container-high": "#292a2a",
+                        "error-container": "#93000a",
+                        "on-secondary": "#313030",
+                        "inverse-primary": "#ba0060",
+                        "tertiary-container": "#929090",
+                        "on-tertiary-fixed": "#1b1b1c",
+                        "on-error": "#690005",
+                        "secondary": "#c8c6c5",
+                        "primary-fixed": "#ffd9e2",
+                        "secondary-fixed": "#e5e2e1",
+                        "tertiary-fixed": "#e5e2e1",
+                        "surface-container-highest": "#343535",
+                        "on-primary-fixed-variant": "#8e0048",
+                        "background": "#121414",
+                        "on-tertiary-container": "#2a2a2a",
+                        "outline": "#aa8890",
+                        "surface-tint": "#ffb1c7",
+                        "surface-container-lowest": "#0d0e0f",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface": "#121414",
+                        "on-primary-fixed": "#3f001c",
+                        "surface-container-low": "#1a1c1c",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "on-primary-container": "#59002b",
+                        "primary": "#ffb1c7",
+                        "inverse-on-surface": "#2f3131"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max-width": "1280px",
+                        "unit": "8px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bento-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(255, 177, 199, 0.15);
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+    <!-- TopNavBar -->
+    <header class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-surface-container-highest">
+        <nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+            <div class="font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-primary tracking-tight">
+                Poliana House Cleaner
+            </div>
+            <div class="hidden md:flex items-center gap-8 font-label-md">
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#services">Services</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#testimonials">Testimonials</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#about">About</a>
+                <a class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold hover:brightness-110 active:scale-95 transition-all shadow-md shadow-primary/20" href="#book">
+                    Get a Quote
+                </a>
+            </div>
+            <button class="md:hidden text-primary">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </nav>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative overflow-hidden pt-12 md:pt-24 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="z-10">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high text-primary font-label-sm mb-6 border border-primary/20">
+                        <span class="material-symbols-outlined text-[18px]">verified</span>
+                        <span>Serviço Premium de Limpeza nos EUA</span>
+                    </div>
+                    <h1 class="font-headline-xl text-headline-xl text-on-surface mb-6 leading-tight">
+                        Your Home, Sparkling Clean &amp; <span class="text-primary">Polished by Poliana</span>
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">
+                        Professional house cleaning services in the USA with a personal touch you can trust. Transformamos seu lar em um refúgio impecável.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a class="inline-flex items-center justify-center bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-lg hover:brightness-110 shadow-lg shadow-primary/20 transition-all active:scale-95" href="#book">
+                            Get Your Free Quote Today
+                            <span class="material-symbols-outlined ml-2">arrow_forward</span>
+                        </a>
+                        <div class="flex -space-x-3 items-center ml-2">
+                            <div class="w-10 h-10 rounded-full border-2 border-surface-container-lowest bg-surface-container flex items-center justify-center">
+                                <span class="material-symbols-outlined text-primary text-sm">person</span>
+                            </div>
+                            <div class="w-10 h-10 rounded-full border-2 border-surface-container-lowest bg-surface-container flex items-center justify-center">
+                                <span class="material-symbols-outlined text-primary text-sm">star</span>
+                            </div>
+                            <span class="pl-6 text-sm font-semibold text-on-surface-variant">+500 Clientes Felizes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute -top-12 -right-12 w-64 h-64 bg-primary/20 rounded-full blur-3xl opacity-30"></div>
+                    <div class="absolute -bottom-12 -left-12 w-64 h-64 bg-secondary-container rounded-full blur-3xl opacity-20"></div>
+                    <div class="relative z-10 mx-auto max-w-[450px]">
+                        <img alt="Poliana sorrindo com luvas rosa" class="w-full h-auto aspect-[3/4] object-cover rounded-3xl border-4 border-surface-variant shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDikKIkipk3jhgMEDvRSMU7u9hYmn2eHSf_qmr5En9xERXvkH77557sxKc9l_ENT1VCyg15muCvr0YaNVj0Q9huSVf8VeFHQdyBzgSbedGIIpc03DOes7PFTqW_YFicIUD9kT01CWcTX9P4RRQqi2cwZ0vEEjfJ1BSYyS6CrFg4crPQyCf-0XTiys6alEG0-IYocJMQjVyEpYgH4Z6IQ8sQIRKhxrYYEd8EodgH3_GSBYx1pEFTX4xK3tqw4l2R640oXl5bkLZqQnaj"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Trust Section -->
+        <section class="bg-surface-container-low py-16 px-margin-mobile md:px-margin-desktop border-y border-surface-container">
+            <div class="max-w-container-max mx-auto text-center">
+                <h2 class="font-headline-lg text-headline-lg mb-12 text-on-surface">Why Choose Poliana?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="flex flex-col items-center p-8 bg-surface-container rounded-2xl border border-outline-variant/10 shadow-sm">
+                        <div class="w-16 h-16 bg-primary-container/20 rounded-full flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+                        </div>
+                        <h3 class="font-headline-md text-xl mb-2 text-on-surface">Insured &amp; Bonded</h3>
+                        <p class="text-on-surface-variant text-center">Sua segurança é nossa prioridade. Operamos com seguro total para sua tranquilidade.</p>
+                    </div>
+                    <div class="flex flex-col items-center p-8 bg-surface-container rounded-2xl border border-outline-variant/10 shadow-sm">
+                        <div class="w-16 h-16 bg-primary-container/20 rounded-full flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-primary text-3xl">eco</span>
+                        </div>
+                        <h3 class="font-headline-md text-xl mb-2 text-on-surface">Eco-Friendly Products</h3>
+                        <p class="text-on-surface-variant text-center">Utilizamos produtos sustentáveis que cuidam da sua família e do planeta.</p>
+                    </div>
+                    <div class="flex flex-col items-center p-8 bg-surface-container rounded-2xl border border-outline-variant/10 shadow-sm">
+                        <div class="w-16 h-16 bg-primary-container/20 rounded-full flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-primary text-3xl">recommend</span>
+                        </div>
+                        <h3 class="font-headline-md text-xl mb-2 text-on-surface">Satisfaction Guaranteed</h3>
+                        <p class="text-on-surface-variant text-center">Se você não estiver 100% satisfeito, nós voltamos para corrigir sem custos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services Section -->
+        <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="services">
+            <div class="text-center mb-16">
+                <span class="text-primary font-bold uppercase tracking-widest text-sm">Nossos Serviços</span>
+                <h2 class="font-headline-lg text-headline-lg mt-2 text-on-surface">Escolha a Limpeza Ideal para Você</h2>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Regular Cleaning -->
+                <div class="bento-card bg-surface-container-high rounded-2xl border border-outline-variant/20 p-8 flex flex-col">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="material-symbols-outlined text-primary text-4xl">home</span>
+                        <div class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase">Mais Popular</div>
+                    </div>
+                    <h3 class="font-headline-lg text-2xl mb-2 text-on-surface">Regular Cleaning</h3>
+                    <p class="text-on-surface-variant mb-6">Ideal para manter o brilho constante da sua casa toda semana ou quinzenalmente.</p>
+                    <div class="text-3xl font-bold mb-6 text-primary">Starting at $120</div>
+                    <ul class="space-y-3 mb-8 flex-grow">
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Aspiração de todos os cômodos
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Limpeza de banheiros e cozinha
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Pó em superfícies visíveis
+                        </li>
+                    </ul>
+                    <a class="w-full py-3 rounded-xl border-2 border-primary text-primary font-bold text-center hover:bg-primary hover:text-on-primary transition-all" href="#book">Agendar Agora</a>
+                </div>
+                <!-- Deep Cleaning -->
+                <div class="bento-card bg-primary-container text-on-primary-container rounded-2xl p-8 flex flex-col shadow-xl">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="material-symbols-outlined text-on-primary text-4xl">cleaning_services</span>
+                    </div>
+                    <h3 class="font-headline-lg text-2xl mb-2 text-on-primary">Deep Cleaning</h3>
+                    <p class="text-on-primary/90 mb-6">Uma limpeza profunda em cada detalhe, removendo sujeiras acumuladas de meses.</p>
+                    <div class="text-3xl font-bold mb-6 text-on-primary">Starting at $250</div>
+                    <ul class="space-y-3 mb-8 flex-grow">
+                        <li class="flex items-center gap-2 text-sm text-on-primary/90">
+                            <span class="material-symbols-outlined text-on-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Interior de janelas e rodapés
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-primary/90">
+                            <span class="material-symbols-outlined text-on-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Limpeza pesada de forno e geladeira
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-primary/90">
+                            <span class="material-symbols-outlined text-on-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Atrás e embaixo de móveis
+                        </li>
+                    </ul>
+                    <a class="w-full py-3 rounded-xl bg-on-primary text-primary-container font-bold text-center hover:opacity-90 transition-all" href="#book">Agendar Agora</a>
+                </div>
+                <!-- Move-in/out -->
+                <div class="bento-card bg-surface-container-high rounded-2xl border border-outline-variant/20 p-8 flex flex-col">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="material-symbols-outlined text-primary text-4xl">local_shipping</span>
+                    </div>
+                    <h3 class="font-headline-lg text-2xl mb-2 text-on-surface">Move-in/out</h3>
+                    <p class="text-on-surface-variant mb-6">Perfeito para quem está de mudança e quer garantir o depósito ou entrar com tudo limpo.</p>
+                    <div class="text-3xl font-bold mb-6 text-primary">Starting at $300</div>
+                    <ul class="space-y-3 mb-8 flex-grow">
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Limpeza completa de armários vazios
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Sanitização profunda de áreas
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Pronto para novos moradores
+                        </li>
+                    </ul>
+                    <a class="w-full py-3 rounded-xl border-2 border-primary text-primary font-bold text-center hover:bg-primary hover:text-on-primary transition-all" href="#book">Agendar Agora</a>
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section class="bg-surface-container py-24 px-margin-mobile md:px-margin-desktop overflow-hidden" id="about">
+            <div class="max-w-container-max mx-auto flex flex-col md:flex-row items-center gap-16">
+                <div class="w-full md:w-1/2 relative">
+                    <div class="absolute inset-0 bg-primary/10 rounded-3xl -rotate-3 scale-105"></div>
+                    <div class="relative bg-surface-variant p-4 rounded-3xl shadow-2xl transform rotate-1">
+                        <img alt="Poliana exibindo seu trabalho profissional" class="w-full h-[600px] object-cover rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDikKIkipk3jhgMEDvRSMU7u9hYmn2eHSf_qmr5En9xERXvkH77557sxKc9l_ENT1VCyg15muCvr0YaNVj0Q9huSVf8VeFHQdyBzgSbedGIIpc03DOes7PFTqW_YFicIUD9kT01CWcTX9P4RRQqi2cwZ0vEEjfJ1BSYyS6CrFg4crPQyCf-0XTiys6alEG0-IYocJMQjVyEpYgH4Z6IQ8sQIRKhxrYYEd8EodgH3_GSBYx1pEFTX4xK3tqw4l2R640oXl5bkLZqQnaj"/>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h2 class="font-headline-lg text-headline-lg mb-6 text-on-surface">Meet Poliana</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                        Com anos de experiência cuidando de lares americanos, entendo que limpeza não é apenas sobre superfícies brilhantes, é sobre saúde e paz de espírito.
+                    </p>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                        Minha paixão por detalhes e dedicação me permitiram construir relacionamentos de confiança com centenas de famílias. Cada casa que limpo é tratada como se fosse a minha própria, com o máximo cuidado e discrição.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary">verified</span>
+                            <span class="font-bold text-on-surface">8+ Anos Experiência</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary">favorite</span>
+                            <span class="font-bold text-on-surface">Atendimento Humano</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials -->
+        <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="testimonials">
+            <div class="text-center mb-16">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">O Que Nossos Clientes Dizem</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-surface-container p-8 rounded-2xl shadow-sm border border-outline-variant/10 italic relative">
+                    <span class="material-symbols-outlined absolute -top-4 -left-4 text-primary/20 text-6xl">format_quote</span>
+                    <div class="flex gap-1 mb-4 text-primary">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <p class="mb-6 text-on-surface-variant">"Poliana is simply the best. My house has never smelled so fresh or looked so clean. Her attention to detail is unmatched!"</p>
+                    <div class="font-bold text-on-surface">— Sarah J., New Jersey</div>
+                </div>
+                <div class="bg-surface-container p-8 rounded-2xl shadow-sm border border-outline-variant/10 italic relative">
+                    <span class="material-symbols-outlined absolute -top-4 -left-4 text-primary/20 text-6xl">format_quote</span>
+                    <div class="flex gap-1 mb-4 text-primary">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <p class="mb-6 text-on-surface-variant">"Dependable, professional, and kind. We've used her service for 2 years and wouldn't trust anyone else with our home keys."</p>
+                    <div class="font-bold text-on-surface">— Robert K., New York</div>
+                </div>
+                <div class="bg-surface-container p-8 rounded-2xl shadow-sm border border-outline-variant/10 italic relative">
+                    <span class="material-symbols-outlined absolute -top-4 -left-4 text-primary/20 text-6xl">format_quote</span>
+                    <div class="flex gap-1 mb-4 text-primary">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <p class="mb-6 text-on-surface-variant">"The deep cleaning service saved us during our move. She got stains out we thought were permanent. Highly recommend!"</p>
+                    <div class="font-bold text-on-surface">— Emily W., Connecticut</div>
+                </div>
+            </div>
+        </section>
+        <!-- Lead Form Section -->
+        <section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-highest text-on-surface" id="book">
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg mb-6 text-primary">Book Your Cleaning</h2>
+                    <p class="mb-8 text-on-surface-variant">Preencha o formulário e entraremos em contato em até 2 horas para um orçamento personalizado e gratuito.</p>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-primary">call</span>
+                            <span class="font-bold">(555) 0123-4567</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-primary">mail</span>
+                            <span class="font-bold">contato@polianacleaning.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-surface-container-lowest p-8 rounded-2xl text-on-surface shadow-2xl border border-outline-variant/10">
+                    <form action="#" class="space-y-4" onsubmit="event.preventDefault(); alert('Obrigado! Entraremos em contato em breve.');">
+                        <div>
+                            <label class="block font-label-md mb-2 text-on-surface">Nome Completo</label>
+                            <input class="w-full rounded-xl border-surface-container bg-surface-container-low focus:ring-primary focus:border-primary px-4 py-3 text-on-surface" placeholder="Seu nome" required="" type="text"/>
+                        </div>
+                        <div>
+                            <label class="block font-label-md mb-2 text-on-surface">E-mail</label>
+                            <input class="w-full rounded-xl border-surface-container bg-surface-container-low focus:ring-primary focus:border-primary px-4 py-3 text-on-surface" placeholder="seu@email.com" required="" type="email"/>
+                        </div>
+                        <div>
+                            <label class="block font-label-md mb-2 text-on-surface">Telefone</label>
+                            <input class="w-full rounded-xl border-surface-container bg-surface-container-low focus:ring-primary focus:border-primary px-4 py-3 text-on-surface" placeholder="(00) 00000-0000" required="" type="tel"/>
+                        </div>
+                        <div>
+                            <label class="block font-label-md mb-2 text-on-surface">Tipo de Serviço</label>
+                            <select class="w-full rounded-xl border-surface-container bg-surface-container-low focus:ring-primary focus:border-primary px-4 py-3 text-on-surface">
+                                <option>Regular Cleaning</option>
+                                <option>Deep Cleaning</option>
+                                <option>Move-in/out</option>
+                            </select>
+                        </div>
+                        <button class="w-full bg-primary text-on-primary font-bold py-4 rounded-xl hover:brightness-110 active:scale-95 transition-all mt-4 shadow-lg shadow-primary/20" type="submit">
+                            Solicitar Orçamento Grátis
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-background border-t border-surface-container-highest">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
+            <div class="font-headline-lg text-headline-lg text-primary mb-6 md:mb-0">
+                Poliana House Cleaner
+            </div>
+            <div class="flex gap-8 mb-6 md:mb-0">
+                <a class="text-on-surface-variant hover:text-primary transition-all text-sm font-semibold" href="#">Privacy Policy</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all text-sm font-semibold" href="#">Terms of Service</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all text-sm font-semibold" href="#">Contact</a>
+            </div>
+            <div class="text-on-surface-variant text-sm">
+                © 2024 Poliana House Cleaner. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <!-- FAB for quick action -->
+    <a class="fixed bottom-8 right-8 bg-primary text-on-primary p-5 rounded-full shadow-2xl flex items-center gap-2 hover:scale-110 active:scale-95 transition-all z-40 md:hidden" href="#book">
+        <span class="material-symbols-outlined">schedule</span>
+        <span class="font-bold">Book Now</span>
+    </a>
+    <script>
+        // Smooth scroll implementation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header transparency on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-xl', 'bg-surface/95');
+                header.classList.remove('bg-surface/80');
+            } else {
+                header.classList.remove('shadow-xl', 'bg-surface/95');
+                header.classList.add('bg-surface/80');
+            }
+        });
+    </script>
+</body>
+</html>
