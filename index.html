@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="pt-BR">
+<html class="scroll-smooth" lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Poliana House Cleaner | Limpeza Profissional com Toque Pessoal</title>
+    <title>Poliana House Cleaner | Professional Cleaning with a Personal Touch</title>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
@@ -115,6 +115,36 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
+
+        /* Glow and Shine Effects for Titles */
+        .shine-glow-title {
+            position: relative;
+            color: #e3e2e2;
+            text-shadow: 0 0 15px rgba(255, 177, 199, 0.25), 0 0 30px rgba(255, 177, 199, 0.1);
+        }
+        .shine-accent {
+            background: linear-gradient(120deg, #ffb1c7 30%, #ffffff 50%, #ffb1c7 70%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: textShine 4s linear infinite;
+            text-shadow: 0 0 20px rgba(255, 177, 199, 0.4);
+            display: inline-block;
+        }
+        @keyframes textShine {
+            0% {
+                background-position: 0% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
+        /* Soft glow for secondary headers */
+        .header-glow {
+            text-shadow: 0 0 12px rgba(255, 177, 199, 0.25);
+            position: relative;
+        }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
@@ -125,17 +155,40 @@
                 Poliana House Cleaner
             </div>
             <div class="hidden md:flex items-center gap-8 font-label-md">
-                <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#services">Services</a>
-                <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#testimonials">Testimonials</a>
-                <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#about">About</a>
-                <a class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold hover:brightness-110 active:scale-95 transition-all shadow-md shadow-primary/20" href="#book">
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#services" data-i18n="nav.services">Services</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#testimonials" data-i18n="nav.testimonials">Testimonials</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#about" data-i18n="nav.about">About</a>
+                <a class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold hover:brightness-110 active:scale-95 transition-all shadow-md shadow-primary/20" href="#book" data-i18n="nav.quote">
                     Get a Quote
                 </a>
+                <!-- Language Toggle Desktop -->
+                <button id="lang-toggle" class="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-surface-container border border-primary/20 text-on-surface hover:border-primary transition-all text-xs font-semibold shadow-sm active:scale-95">
+                    <span class="material-symbols-outlined text-[16px]">language</span>
+                    <span id="lang-label">🇺🇸 EN</span>
+                </button>
             </div>
-            <button class="md:hidden text-primary">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
+            
+            <div class="flex items-center gap-3 md:hidden">
+                <!-- Language Toggle Mobile -->
+                <button id="lang-toggle-mobile" class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container border border-primary/20 text-on-surface text-xs font-semibold shadow-sm active:scale-95">
+                    <span class="material-symbols-outlined text-[14px]">language</span>
+                    <span id="lang-label-mobile">🇺🇸 EN</span>
+                </button>
+                <button class="text-primary" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
         </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface-container/95 border-b border-surface-container-highest px-margin-mobile py-4 space-y-4 font-label-md backdrop-blur-md">
+            <a class="block text-on-surface-variant hover:text-primary transition-colors duration-200" href="#services" data-i18n="nav.services">Services</a>
+            <a class="block text-on-surface-variant hover:text-primary transition-colors duration-200" href="#testimonials" data-i18n="nav.testimonials">Testimonials</a>
+            <a class="block text-on-surface-variant hover:text-primary transition-colors duration-200" href="#about" data-i18n="nav.about">About</a>
+            <a class="block bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold hover:brightness-110 active:scale-95 transition-all shadow-md shadow-primary/20 text-center" href="#book" data-i18n="nav.quote">
+                Get a Quote
+            </a>
+        </div>
     </header>
     <main>
         <!-- Hero Section -->
@@ -144,17 +197,17 @@
                 <div class="z-10">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high text-primary font-label-sm mb-6 border border-primary/20">
                         <span class="material-symbols-outlined text-[18px]">verified</span>
-                        <span>Serviço Premium de Limpeza nos EUA</span>
+                        <span data-i18n="hero.badge">Premium Cleaning Service in the USA</span>
                     </div>
-                    <h1 class="font-headline-xl text-headline-xl text-on-surface mb-6 leading-tight">
-                        Your Home, Sparkling Clean &amp; <span class="text-primary">Polished by Poliana</span>
+                    <h1 class="font-headline-xl text-headline-xl text-on-surface mb-6 leading-tight shine-glow-title">
+                        <span data-i18n="hero.title1">Your Home,</span> <span class="text-primary shine-accent" data-i18n="hero.title_span">Sparkling Clean &amp; Polished by Poliana</span>
                     </h1>
-                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">
-                        Professional house cleaning services in the USA with a personal touch you can trust. Transformamos seu lar em um refúgio impecável.
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg" data-i18n="hero.desc">
+                        Professional house cleaning services in the USA with a personal touch you can trust. We transform your home into an impeccable sanctuary.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a class="inline-flex items-center justify-center bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-lg hover:brightness-110 shadow-lg shadow-primary/20 transition-all active:scale-95" href="#book">
-                            Get Your Free Quote Today
+                            <span data-i18n="hero.cta">Get Your Free Quote Today</span>
                             <span class="material-symbols-outlined ml-2">arrow_forward</span>
                         </a>
                         <div class="flex -space-x-3 items-center ml-2">
@@ -164,7 +217,7 @@
                             <div class="w-10 h-10 rounded-full border-2 border-surface-container-lowest bg-surface-container flex items-center justify-center">
                                 <span class="material-symbols-outlined text-primary text-sm">star</span>
                             </div>
-                            <span class="pl-6 text-sm font-semibold text-on-surface-variant">+500 Clientes Felizes</span>
+                            <span class="pl-6 text-sm font-semibold text-on-surface-variant" data-i18n="hero.clients">+500 Happy Clients</span>
                         </div>
                     </div>
                 </div>
@@ -180,28 +233,28 @@
         <!-- Trust Section -->
         <section class="bg-surface-container-low py-16 px-margin-mobile md:px-margin-desktop border-y border-surface-container">
             <div class="max-w-container-max mx-auto text-center">
-                <h2 class="font-headline-lg text-headline-lg mb-12 text-on-surface">Why Choose Poliana?</h2>
+                <h2 class="font-headline-lg text-headline-lg mb-12 text-on-surface header-glow" data-i18n="why.title">Why Choose Poliana?</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="flex flex-col items-center p-8 bg-surface-container rounded-2xl border border-outline-variant/10 shadow-sm">
                         <div class="w-16 h-16 bg-primary-container/20 rounded-full flex items-center justify-center mb-4">
                             <span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
                         </div>
-                        <h3 class="font-headline-md text-xl mb-2 text-on-surface">Insured &amp; Bonded</h3>
-                        <p class="text-on-surface-variant text-center">Sua segurança é nossa prioridade. Operamos com seguro total para sua tranquilidade.</p>
+                        <h3 class="font-headline-md text-xl mb-2 text-on-surface" data-i18n="why.insured.title">Insured &amp; Bonded</h3>
+                        <p class="text-on-surface-variant text-center" data-i18n="why.insured.desc">Your safety is our priority. We operate with full insurance for your peace of mind.</p>
                     </div>
                     <div class="flex flex-col items-center p-8 bg-surface-container rounded-2xl border border-outline-variant/10 shadow-sm">
                         <div class="w-16 h-16 bg-primary-container/20 rounded-full flex items-center justify-center mb-4">
                             <span class="material-symbols-outlined text-primary text-3xl">eco</span>
                         </div>
-                        <h3 class="font-headline-md text-xl mb-2 text-on-surface">Eco-Friendly Products</h3>
-                        <p class="text-on-surface-variant text-center">Utilizamos produtos sustentáveis que cuidam da sua família e do planeta.</p>
+                        <h3 class="font-headline-md text-xl mb-2 text-on-surface" data-i18n="why.eco.title">Eco-Friendly Products</h3>
+                        <p class="text-on-surface-variant text-center" data-i18n="why.eco.desc">We use sustainable products that care for your family and the planet.</p>
                     </div>
                     <div class="flex flex-col items-center p-8 bg-surface-container rounded-2xl border border-outline-variant/10 shadow-sm">
                         <div class="w-16 h-16 bg-primary-container/20 rounded-full flex items-center justify-center mb-4">
                             <span class="material-symbols-outlined text-primary text-3xl">recommend</span>
                         </div>
-                        <h3 class="font-headline-md text-xl mb-2 text-on-surface">Satisfaction Guaranteed</h3>
-                        <p class="text-on-surface-variant text-center">Se você não estiver 100% satisfeito, nós voltamos para corrigir sem custos.</p>
+                        <h3 class="font-headline-md text-xl mb-2 text-on-surface" data-i18n="why.satisfaction.title">Satisfaction Guaranteed</h3>
+                        <p class="text-on-surface-variant text-center" data-i18n="why.satisfaction.desc">If you are not 100% satisfied, we return to fix it at no cost.</p>
                     </div>
                 </div>
             </div>
@@ -209,82 +262,82 @@
         <!-- Services Section -->
         <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="services">
             <div class="text-center mb-16">
-                <span class="text-primary font-bold uppercase tracking-widest text-sm">Nossos Serviços</span>
-                <h2 class="font-headline-lg text-headline-lg mt-2 text-on-surface">Escolha a Limpeza Ideal para Você</h2>
+                <span class="text-primary font-bold uppercase tracking-widest text-sm" data-i18n="services.subtitle">Our Services</span>
+                <h2 class="font-headline-lg text-headline-lg mt-2 text-on-surface header-glow" data-i18n="services.title">Choose the Ideal Cleaning for You</h2>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Regular Cleaning -->
                 <div class="bento-card bg-surface-container-high rounded-2xl border border-outline-variant/20 p-8 flex flex-col">
                     <div class="flex justify-between items-start mb-6">
                         <span class="material-symbols-outlined text-primary text-4xl">home</span>
-                        <div class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase">Mais Popular</div>
+                        <div class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase" data-i18n="services.regular.tag">Most Popular</div>
                     </div>
-                    <h3 class="font-headline-lg text-2xl mb-2 text-on-surface">Regular Cleaning</h3>
-                    <p class="text-on-surface-variant mb-6">Ideal para manter o brilho constante da sua casa toda semana ou quinzenalmente.</p>
-                    <div class="text-3xl font-bold mb-6 text-primary">Starting at $120</div>
+                    <h3 class="font-headline-lg text-2xl mb-2 text-on-surface" data-i18n="services.regular.title">Regular Cleaning</h3>
+                    <p class="text-on-surface-variant mb-6" data-i18n="services.regular.desc">Ideal for maintaining the constant shine of your home every week or bi-weekly.</p>
+                    <div class="text-3xl font-bold mb-6 text-primary" data-i18n="services.regular.price">Starting at $120</div>
                     <ul class="space-y-3 mb-8 flex-grow">
                         <li class="flex items-center gap-2 text-sm text-on-surface-variant">
                             <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                            Aspiração de todos os cômodos
+                            <span data-i18n="services.regular.f1">Vacuuming of all rooms</span>
                         </li>
                         <li class="flex items-center gap-2 text-sm text-on-surface-variant">
                             <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                            Limpeza de banheiros e cozinha
+                            <span data-i18n="services.regular.f2">Cleaning of bathrooms and kitchen</span>
                         </li>
                         <li class="flex items-center gap-2 text-sm text-on-surface-variant">
                             <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                            Pó em superfícies visíveis
+                            <span data-i18n="services.regular.f3">Dusting of visible surfaces</span>
                         </li>
                     </ul>
-                    <a class="w-full py-3 rounded-xl border-2 border-primary text-primary font-bold text-center hover:bg-primary hover:text-on-primary transition-all" href="#book">Agendar Agora</a>
+                    <a class="w-full py-3 rounded-xl border-2 border-primary text-primary font-bold text-center hover:bg-primary hover:text-on-primary transition-all" href="#book" data-i18n="services.regular.cta">Book Now</a>
                 </div>
                 <!-- Deep Cleaning -->
                 <div class="bento-card bg-primary-container text-on-primary-container rounded-2xl p-8 flex flex-col shadow-xl">
                     <div class="flex justify-between items-start mb-6">
                         <span class="material-symbols-outlined text-on-primary text-4xl">cleaning_services</span>
                     </div>
-                    <h3 class="font-headline-lg text-2xl mb-2 text-on-primary">Deep Cleaning</h3>
-                    <p class="text-on-primary/90 mb-6">Uma limpeza profunda em cada detalhe, removendo sujeiras acumuladas de meses.</p>
-                    <div class="text-3xl font-bold mb-6 text-on-primary">Starting at $250</div>
+                    <h3 class="font-headline-lg text-2xl mb-2 text-on-primary" data-i18n="services.deep.title">Deep Cleaning</h3>
+                    <p class="text-on-primary/90 mb-6" data-i18n="services.deep.desc">A deep cleaning in every detail, removing accumulated dirt of months.</p>
+                    <div class="text-3xl font-bold mb-6 text-on-primary" data-i18n="services.deep.price">Starting at $250</div>
                     <ul class="space-y-3 mb-8 flex-grow">
                         <li class="flex items-center gap-2 text-sm text-on-primary/90">
                             <span class="material-symbols-outlined text-on-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                            Interior de janelas e rodapés
+                            <span data-i18n="services.deep.f1">Inside windows and baseboards</span>
                         </li>
                         <li class="flex items-center gap-2 text-sm text-on-primary/90">
                             <span class="material-symbols-outlined text-on-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                            Limpeza pesada de forno e geladeira
+                            <span data-i18n="services.deep.f2">Heavy cleaning of oven and fridge</span>
                         </li>
                         <li class="flex items-center gap-2 text-sm text-on-primary/90">
                             <span class="material-symbols-outlined text-on-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                            Atrás e embaixo de móveis
+                            <span data-i18n="services.deep.f3">Behind and under furniture</span>
                         </li>
                     </ul>
-                    <a class="w-full py-3 rounded-xl bg-on-primary text-primary-container font-bold text-center hover:opacity-90 transition-all" href="#book">Agendar Agora</a>
+                    <a class="w-full py-3 rounded-xl bg-on-primary text-primary-container font-bold text-center hover:opacity-90 transition-all" href="#book" data-i18n="services.deep.cta">Book Now</a>
                 </div>
                 <!-- Move-in/out -->
                 <div class="bento-card bg-surface-container-high rounded-2xl border border-outline-variant/20 p-8 flex flex-col">
                     <div class="flex justify-between items-start mb-6">
                         <span class="material-symbols-outlined text-primary text-4xl">local_shipping</span>
                     </div>
-                    <h3 class="font-headline-lg text-2xl mb-2 text-on-surface">Move-in/out</h3>
-                    <p class="text-on-surface-variant mb-6">Perfeito para quem está de mudança e quer garantir o depósito ou entrar com tudo limpo.</p>
-                    <div class="text-3xl font-bold mb-6 text-primary">Starting at $300</div>
+                    <h3 class="font-headline-lg text-2xl mb-2 text-on-surface" data-i18n="services.move.title">Move-in/out</h3>
+                    <p class="text-on-surface-variant mb-6" data-i18n="services.move.desc">Perfect for those who are moving and want to guarantee the deposit or enter with everything clean.</p>
+                    <div class="text-3xl font-bold mb-6 text-primary" data-i18n="services.move.price">Starting at $300</div>
                     <ul class="space-y-3 mb-8 flex-grow">
                         <li class="flex items-center gap-2 text-sm text-on-surface-variant">
                             <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                            Limpeza completa de armários vazios
+                            <span data-i18n="services.move.f1">Complete cleaning of empty cabinets</span>
                         </li>
                         <li class="flex items-center gap-2 text-sm text-on-surface-variant">
                             <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                            Sanitização profunda de áreas
+                            <span data-i18n="services.move.f2">Deep sanitization of areas</span>
                         </li>
                         <li class="flex items-center gap-2 text-sm text-on-surface-variant">
                             <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                            Pronto para novos moradores
+                            <span data-i18n="services.move.f3">Ready for new residents</span>
                         </li>
                     </ul>
-                    <a class="w-full py-3 rounded-xl border-2 border-primary text-primary font-bold text-center hover:bg-primary hover:text-on-primary transition-all" href="#book">Agendar Agora</a>
+                    <a class="w-full py-3 rounded-xl border-2 border-primary text-primary font-bold text-center hover:bg-primary hover:text-on-primary transition-all" href="#book" data-i18n="services.move.cta">Book Now</a>
                 </div>
             </div>
         </section>
@@ -298,21 +351,21 @@
                     </div>
                 </div>
                 <div class="w-full md:w-1/2">
-                    <h2 class="font-headline-lg text-headline-lg mb-6 text-on-surface">Meet Poliana</h2>
-                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
-                        Com anos de experiência cuidando de lares americanos, entendo que limpeza não é apenas sobre superfícies brilhantes, é sobre saúde e paz de espírito.
+                    <h2 class="font-headline-lg text-headline-lg mb-6 text-on-surface header-glow" data-i18n="about.title">Meet Poliana</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-6" data-i18n="about.desc1">
+                        With years of experience caring for American homes, I understand that cleaning is not just about shiny surfaces, it's about health and peace of mind.
                     </p>
-                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
-                        Minha paixão por detalhes e dedicação me permitiram construir relacionamentos de confiança com centenas de famílias. Cada casa que limpo é tratada como se fosse a minha própria, com o máximo cuidado e discrição.
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8" data-i18n="about.desc2">
+                        My passion for details and dedication allowed me to build trust relationships with hundreds of families. Every home I clean is treated as if it were my own, with maximum care and discretion.
                     </p>
                     <div class="grid grid-cols-2 gap-6">
                         <div class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-primary">verified</span>
-                            <span class="font-bold text-on-surface">8+ Anos Experiência</span>
+                            <span class="font-bold text-on-surface" data-i18n="about.exp">8+ Years of Experience</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-primary">favorite</span>
-                            <span class="font-bold text-on-surface">Atendimento Humano</span>
+                            <span class="font-bold text-on-surface" data-i18n="about.personal">Humanized Care</span>
                         </div>
                     </div>
                 </div>
@@ -321,7 +374,7 @@
         <!-- Testimonials -->
         <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="testimonials">
             <div class="text-center mb-16">
-                <h2 class="font-headline-lg text-headline-lg text-on-surface">O Que Nossos Clientes Dizem</h2>
+                <h2 class="font-headline-lg text-headline-lg text-on-surface header-glow" data-i18n="testimonials.title">What Our Clients Say</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-surface-container p-8 rounded-2xl shadow-sm border border-outline-variant/10 italic relative">
@@ -333,7 +386,7 @@
                         <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
                         <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
                     </div>
-                    <p class="mb-6 text-on-surface-variant">"Poliana is simply the best. My house has never smelled so fresh or looked so clean. Her attention to detail is unmatched!"</p>
+                    <p class="mb-6 text-on-surface-variant" data-i18n="testimonials.1.text">"Poliana is simply the best. My house has never smelled so fresh or looked so clean. Her attention to detail is unmatched!"</p>
                     <div class="font-bold text-on-surface">— Sarah J., New Jersey</div>
                 </div>
                 <div class="bg-surface-container p-8 rounded-2xl shadow-sm border border-outline-variant/10 italic relative">
@@ -345,7 +398,7 @@
                         <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
                         <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
                     </div>
-                    <p class="mb-6 text-on-surface-variant">"Dependable, professional, and kind. We've used her service for 2 years and wouldn't trust anyone else with our home keys."</p>
+                    <p class="mb-6 text-on-surface-variant" data-i18n="testimonials.2.text">"Dependable, professional, and kind. We've used her service for 2 years and wouldn't trust anyone else with our home keys."</p>
                     <div class="font-bold text-on-surface">— Robert K., New York</div>
                 </div>
                 <div class="bg-surface-container p-8 rounded-2xl shadow-sm border border-outline-variant/10 italic relative">
@@ -357,7 +410,7 @@
                         <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
                         <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
                     </div>
-                    <p class="mb-6 text-on-surface-variant">"The deep cleaning service saved us during our move. She got stains out we thought were permanent. Highly recommend!"</p>
+                    <p class="mb-6 text-on-surface-variant" data-i18n="testimonials.3.text">"The deep cleaning service saved us during our move. She got stains out we thought were permanent. Highly recommend!"</p>
                     <div class="font-bold text-on-surface">— Emily W., Connecticut</div>
                 </div>
             </div>
@@ -366,43 +419,43 @@
         <section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-highest text-on-surface" id="book">
             <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="font-headline-lg text-headline-lg mb-6 text-primary">Book Your Cleaning</h2>
-                    <p class="mb-8 text-on-surface-variant">Preencha o formulário e entraremos em contato em até 2 horas para um orçamento personalizado e gratuito.</p>
+                    <h2 class="font-headline-lg text-headline-lg mb-6 text-primary shine-accent" data-i18n="book.title">Book Your Cleaning</h2>
+                    <p class="mb-8 text-on-surface-variant" data-i18n="book.subtitle">Fill out the form and we will contact you within 2 hours for a customized and free quote.</p>
                     <div class="space-y-6">
                         <div class="flex items-center gap-4">
                             <span class="material-symbols-outlined text-primary">call</span>
-                            <span class="font-bold">(555) 0123-4567</span>
+                            <span class="font-bold" data-i18n="book.phone">(555) 0123-4567</span>
                         </div>
                         <div class="flex items-center gap-4">
                             <span class="material-symbols-outlined text-primary">mail</span>
-                            <span class="font-bold">contato@polianacleaning.com</span>
+                            <span class="font-bold" data-i18n="book.email">contact@polianacleaning.com</span>
                         </div>
                     </div>
                 </div>
                 <div class="bg-surface-container-lowest p-8 rounded-2xl text-on-surface shadow-2xl border border-outline-variant/10">
-                    <form action="#" class="space-y-4" onsubmit="event.preventDefault(); alert('Obrigado! Entraremos em contato em breve.');">
+                    <form action="#" class="space-y-4" onsubmit="event.preventDefault(); alert(localStorage.getItem('preferred-language') === 'pt' ? 'Obrigado! Entraremos em contato em breve.' : 'Thank you! We will contact you soon.');">
                         <div>
-                            <label class="block font-label-md mb-2 text-on-surface">Nome Completo</label>
-                            <input class="w-full rounded-xl border-surface-container bg-surface-container-low focus:ring-primary focus:border-primary px-4 py-3 text-on-surface" placeholder="Seu nome" required="" type="text"/>
+                            <label class="block font-label-md mb-2 text-on-surface" data-i18n="book.form.name">Full Name</label>
+                            <input class="w-full rounded-xl border-surface-container bg-surface-container-low focus:ring-primary focus:border-primary px-4 py-3 text-on-surface" placeholder="Your name" data-i18n="book.form.name_placeholder" required="" type="text"/>
                         </div>
                         <div>
-                            <label class="block font-label-md mb-2 text-on-surface">E-mail</label>
-                            <input class="w-full rounded-xl border-surface-container bg-surface-container-low focus:ring-primary focus:border-primary px-4 py-3 text-on-surface" placeholder="seu@email.com" required="" type="email"/>
+                            <label class="block font-label-md mb-2 text-on-surface" data-i18n="book.form.email">Email</label>
+                            <input class="w-full rounded-xl border-surface-container bg-surface-container-low focus:ring-primary focus:border-primary px-4 py-3 text-on-surface" placeholder="your@email.com" data-i18n="book.form.email_placeholder" required="" type="email"/>
                         </div>
                         <div>
-                            <label class="block font-label-md mb-2 text-on-surface">Telefone</label>
-                            <input class="w-full rounded-xl border-surface-container bg-surface-container-low focus:ring-primary focus:border-primary px-4 py-3 text-on-surface" placeholder="(00) 00000-0000" required="" type="tel"/>
+                            <label class="block font-label-md mb-2 text-on-surface" data-i18n="book.form.phone">Phone</label>
+                            <input class="w-full rounded-xl border-surface-container bg-surface-container-low focus:ring-primary focus:border-primary px-4 py-3 text-on-surface" placeholder="(000) 000-0000" data-i18n="book.form.phone_placeholder" required="" type="tel"/>
                         </div>
                         <div>
-                            <label class="block font-label-md mb-2 text-on-surface">Tipo de Serviço</label>
+                            <label class="block font-label-md mb-2 text-on-surface" data-i18n="book.form.service">Service Type</label>
                             <select class="w-full rounded-xl border-surface-container bg-surface-container-low focus:ring-primary focus:border-primary px-4 py-3 text-on-surface">
-                                <option>Regular Cleaning</option>
-                                <option>Deep Cleaning</option>
-                                <option>Move-in/out</option>
+                                <option data-i18n="book.form.service_regular">Regular Cleaning</option>
+                                <option data-i18n="book.form.service_deep">Deep Cleaning</option>
+                                <option data-i18n="book.form.service_move">Move-in/out</option>
                             </select>
                         </div>
-                        <button class="w-full bg-primary text-on-primary font-bold py-4 rounded-xl hover:brightness-110 active:scale-95 transition-all mt-4 shadow-lg shadow-primary/20" type="submit">
-                            Solicitar Orçamento Grátis
+                        <button class="w-full bg-primary text-on-primary font-bold py-4 rounded-xl hover:brightness-110 active:scale-95 transition-all mt-4 shadow-lg shadow-primary/20" type="submit" data-i18n="book.form.submit">
+                            Request Free Quote
                         </button>
                     </form>
                 </div>
@@ -416,11 +469,11 @@
                 Poliana House Cleaner
             </div>
             <div class="flex gap-8 mb-6 md:mb-0">
-                <a class="text-on-surface-variant hover:text-primary transition-all text-sm font-semibold" href="#">Privacy Policy</a>
-                <a class="text-on-surface-variant hover:text-primary transition-all text-sm font-semibold" href="#">Terms of Service</a>
-                <a class="text-on-surface-variant hover:text-primary transition-all text-sm font-semibold" href="#">Contact</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all text-sm font-semibold" href="#" data-i18n="footer.privacy">Privacy Policy</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all text-sm font-semibold" href="#" data-i18n="footer.terms">Terms of Service</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all text-sm font-semibold" href="#" data-i18n="footer.contact">Contact</a>
             </div>
-            <div class="text-on-surface-variant text-sm">
+            <div class="text-on-surface-variant text-sm" data-i18n="footer.rights">
                 © 2024 Poliana House Cleaner. All rights reserved.
             </div>
         </div>
@@ -428,9 +481,233 @@
     <!-- FAB for quick action -->
     <a class="fixed bottom-8 right-8 bg-primary text-on-primary p-5 rounded-full shadow-2xl flex items-center gap-2 hover:scale-110 active:scale-95 transition-all z-40 md:hidden" href="#book">
         <span class="material-symbols-outlined">schedule</span>
-        <span class="font-bold">Book Now</span>
+        <span class="font-bold" data-i18n="fab.book">Book Now</span>
     </a>
     <script>
+        // Translation Dictionary
+        const translations = {
+            pt: {
+                "nav.services": "Serviços",
+                "nav.testimonials": "Depoimentos",
+                "nav.about": "Sobre Nós",
+                "nav.quote": "Solicitar Orçamento",
+                
+                "hero.badge": "Serviço Premium de Limpeza nos EUA",
+                "hero.title1": "Seu Lar,",
+                "hero.title_span": "Brilhante e Impecável com a Poliana",
+                "hero.desc": "Serviços profissionais de limpeza residencial nos EUA com um toque pessoal em que você pode confiar. Transformamos seu lar em um refúgio impecável.",
+                "hero.cta": "Solicite Seu Orçamento Grátis Hoje",
+                "hero.clients": "+500 Clientes Felizes",
+                
+                "why.title": "Por Que Escolher a Poliana?",
+                "why.insured.title": "Seguro & Garantia",
+                "why.insured.desc": "Sua segurança é nossa prioridade. Operamos com seguro total para sua tranquilidade.",
+                "why.eco.title": "Produtos Ecológicos",
+                "why.eco.desc": "Utilizamos produtos sustentáveis que cuidam da sua família e do planeta.",
+                "why.satisfaction.title": "Satisfação Garantida",
+                "why.satisfaction.desc": "Se você não estiver 100% satisfeito, nós voltamos para corrigir sem custos.",
+                
+                "services.subtitle": "Nossos Serviços",
+                "services.title": "Escolha a Limpeza Ideal para Você",
+                
+                "services.regular.tag": "Mais Popular",
+                "services.regular.title": "Limpeza Regular",
+                "services.regular.desc": "Ideal para manter o brilho constante da sua casa toda semana ou quinzenalmente.",
+                "services.regular.price": "A partir de $120",
+                "services.regular.f1": "Aspiração de todos os cômodos",
+                "services.regular.f2": "Limpeza de banheiros e cozinha",
+                "services.regular.f3": "Pó em superfícies visíveis",
+                "services.regular.cta": "Agendar Agora",
+                
+                "services.deep.title": "Limpeza Profunda",
+                "services.deep.desc": "Uma limpeza profunda em cada detalhe, removendo sujeiras acumuladas de meses.",
+                "services.deep.price": "A partir de $250",
+                "services.deep.f1": "Interior de janelas e rodapés",
+                "services.deep.f2": "Limpeza pesada de forno e geladeira",
+                "services.deep.f3": "Atrás e embaixo de móveis",
+                "services.deep.cta": "Agendar Agora",
+                
+                "services.move.title": "Mudança (Entrada/Saída)",
+                "services.move.desc": "Perfeito para quem está de mudança e quer garantir o depósito ou entrar com tudo limpo.",
+                "services.move.price": "A partir de $300",
+                "services.move.f1": "Limpeza completa de armários vazios",
+                "services.move.f2": "Sanitização profunda de áreas",
+                "services.move.f3": "Pronto para novos moradores",
+                "services.move.cta": "Agendar Agora",
+                
+                "about.title": "Conheça a Poliana",
+                "about.desc1": "Com anos de experiência cuidando de lares americanos, entendo que limpeza não é apenas sobre superfícies brilhantes, é sobre saúde e paz de espírito.",
+                "about.desc2": "Minha paixão por detalhes e dedicação me permitiram construir relacionamentos de confiança com centenas de famílias. Cada casa que limpo é tratada como se fosse a minha própria, com o máximo cuidado e discrição.",
+                "about.exp": "8+ Anos Experiência",
+                "about.personal": "Atendimento Humano",
+                
+                "testimonials.title": "O Que Nossos Clientes Dizem",
+                "testimonials.1.text": "\"Poliana é simplesmente a melhor. Minha casa nunca esteve tão cheirosa ou limpa. A atenção dela aos detalhes é incomparável!\"",
+                "testimonials.2.text": "\"Confiável, profissional e gentil. Usamos o serviço dela há 2 anos e não confiaríamos as chaves da nossa casa a mais ninguém.\"",
+                "testimonials.3.text": "\"O serviço de limpeza profunda nos salvou durante a nossa mudança. Ela tirou manchas que achávamos que eram permanentes. Altamente recomendo!\"",
+                
+                "book.title": "Agende sua Limpeza",
+                "book.subtitle": "Preencha o formulário e entraremos em contato em até 2 horas para um orçamento personalizado e gratuito.",
+                "book.phone": "(555) 0123-4567",
+                "book.email": "contato@polianacleaning.com",
+                "book.form.name": "Nome Completo",
+                "book.form.name_placeholder": "Seu nome",
+                "book.form.email": "E-mail",
+                "book.form.email_placeholder": "seu@email.com",
+                "book.form.phone": "Telefone",
+                "book.form.phone_placeholder": "(00) 00000-0000",
+                "book.form.service": "Tipo de Serviço",
+                "book.form.service_regular": "Limpeza Regular",
+                "book.form.service_deep": "Limpeza Profunda",
+                "book.form.service_move": "Mudança (Move-in/out)",
+                "book.form.submit": "Solicitar Orçamento Grátis",
+                
+                "footer.privacy": "Política de Privacidade",
+                "footer.terms": "Termos de Serviço",
+                "footer.contact": "Contato",
+                "footer.rights": "© 2024 Poliana House Cleaner. Todos os direitos reservados.",
+                "fab.book": "Agendar"
+            },
+            en: {
+                "nav.services": "Services",
+                "nav.testimonials": "Testimonials",
+                "nav.about": "About",
+                "nav.quote": "Get a Quote",
+                
+                "hero.badge": "Premium Cleaning Service in the USA",
+                "hero.title1": "Your Home,",
+                "hero.title_span": "Sparkling Clean & Polished by Poliana",
+                "hero.desc": "Professional house cleaning services in the USA with a personal touch you can trust. We transform your home into an impeccable sanctuary.",
+                "hero.cta": "Get Your Free Quote Today",
+                "hero.clients": "+500 Happy Clients",
+                
+                "why.title": "Why Choose Poliana?",
+                "why.insured.title": "Insured & Bonded",
+                "why.insured.desc": "Your safety is our priority. We operate with full insurance for your peace of mind.",
+                "why.eco.title": "Eco-Friendly Products",
+                "why.eco.desc": "We use sustainable products that care for your family and the planet.",
+                "why.satisfaction.title": "Satisfaction Guaranteed",
+                "why.satisfaction.desc": "If you are not 100% satisfied, we return to fix it at no cost.",
+                
+                "services.subtitle": "Our Services",
+                "services.title": "Choose the Ideal Cleaning for You",
+                
+                "services.regular.tag": "Most Popular",
+                "services.regular.title": "Regular Cleaning",
+                "services.regular.desc": "Ideal for maintaining the constant shine of your home every week or bi-weekly.",
+                "services.regular.price": "Starting at $120",
+                "services.regular.f1": "Vacuuming of all rooms",
+                "services.regular.f2": "Cleaning of bathrooms and kitchen",
+                "services.regular.f3": "Dusting of visible surfaces",
+                "services.regular.cta": "Book Now",
+                
+                "services.deep.title": "Deep Cleaning",
+                "services.deep.desc": "A deep cleaning in every detail, removing accumulated dirt of months.",
+                "services.deep.price": "Starting at $250",
+                "services.deep.f1": "Inside windows and baseboards",
+                "services.deep.f2": "Heavy cleaning of oven and fridge",
+                "services.deep.f3": "Behind and under furniture",
+                "services.deep.cta": "Book Now",
+                
+                "services.move.title": "Move-in/out",
+                "services.move.desc": "Perfect for those who are moving and want to guarantee the deposit or enter with everything clean.",
+                "services.move.price": "Starting at $300",
+                "services.move.f1": "Complete cleaning of empty cabinets",
+                "services.move.f2": "Deep sanitization of areas",
+                "services.move.f3": "Ready for new residents",
+                "services.move.cta": "Book Now",
+                
+                "about.title": "Meet Poliana",
+                "about.desc1": "With years of experience caring for American homes, I understand that cleaning is not just about shiny surfaces, it's about health and peace of mind.",
+                "about.desc2": "My passion for details and dedication allowed me to build trust relationships with hundreds of families. Every home I clean is treated as if it were my own, with maximum care and discretion.",
+                "about.exp": "8+ Years of Experience",
+                "about.personal": "Humanized Care",
+                
+                "testimonials.title": "What Our Clients Say",
+                "testimonials.1.text": "\"Poliana is simply the best. My house has never smelled so fresh or looked so clean. Her attention to detail is unmatched!\"",
+                "testimonials.2.text": "\"Dependable, professional, and kind. We've used her service for 2 years and wouldn't trust anyone else with our home keys.\"",
+                "testimonials.3.text": "\"The deep cleaning service saved us during our move. She got stains out we thought were permanent. Highly recommend!\"",
+                
+                "book.title": "Book Your Cleaning",
+                "book.subtitle": "Fill out the form and we will contact you within 2 hours for a customized and free quote.",
+                "book.phone": "(555) 0123-4567",
+                "book.email": "contact@polianacleaning.com",
+                "book.form.name": "Full Name",
+                "book.form.name_placeholder": "Your name",
+                "book.form.email": "Email",
+                "book.form.email_placeholder": "your@email.com",
+                "book.form.phone": "Phone",
+                "book.form.phone_placeholder": "(000) 000-0000",
+                "book.form.service": "Service Type",
+                "book.form.service_regular": "Regular Cleaning",
+                "book.form.service_deep": "Deep Cleaning",
+                "book.form.service_move": "Move-in/out",
+                "book.form.submit": "Request Free Quote",
+                
+                "footer.privacy": "Privacy Policy",
+                "footer.terms": "Terms of Service",
+                "footer.contact": "Contact",
+                "footer.rights": "© 2024 Poliana House Cleaner. All rights reserved.",
+                "fab.book": "Book Now"
+            }
+        };
+
+        // Language toggle implementation
+        function setLanguage(lang) {
+            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+            localStorage.setItem('preferred-language', lang);
+            
+            // Update labels
+            const labelText = lang === 'pt' ? '🇧🇷 PT' : '🇺🇸 EN';
+            const desktopLabel = document.getElementById('lang-label');
+            const mobileLabel = document.getElementById('lang-label-mobile');
+            if (desktopLabel) desktopLabel.innerHTML = labelText;
+            if (mobileLabel) mobileLabel.innerHTML = labelText;
+            
+            // Set browser document title
+            document.title = lang === 'pt' 
+                ? 'Poliana House Cleaner | Limpeza Profissional com Toque Pessoal' 
+                : 'Poliana House Cleaner | Professional Cleaning with a Personal Touch';
+            
+            // Translate all elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(elem => {
+                const key = elem.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    if (elem.tagName === 'INPUT' || elem.tagName === 'TEXTAREA') {
+                        elem.placeholder = translations[lang][key];
+                    } else {
+                        elem.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Translate select dropdown options
+            const selectOptions = document.querySelectorAll('select option');
+            if (selectOptions.length >= 3) {
+                selectOptions[0].textContent = translations[lang]["book.form.service_regular"];
+                selectOptions[1].textContent = translations[lang]["book.form.service_deep"];
+                selectOptions[2].textContent = translations[lang]["book.form.service_move"];
+            }
+        }
+
+        const toggleBtn = document.getElementById('lang-toggle');
+        const toggleBtnMobile = document.getElementById('lang-toggle-mobile');
+        
+        function handleLangToggle() {
+            const currentLang = localStorage.getItem('preferred-language') || 'en';
+            const newLang = currentLang === 'en' ? 'pt' : 'en';
+            setLanguage(newLang);
+        }
+        
+        if (toggleBtn) toggleBtn.addEventListener('click', handleLangToggle);
+        if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', handleLangToggle);
+
+        // Auto language detection on first load
+        const browserLang = navigator.language || navigator.userLanguage;
+        const defaultLang = browserLang.startsWith('pt') ? 'pt' : 'en';
+        const savedLang = localStorage.getItem('preferred-language') || defaultLang;
+        setLanguage(savedLang);
+
         // Smooth scroll implementation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -441,6 +718,13 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+
+        // Close mobile menu when links are clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
             });
         });
 
