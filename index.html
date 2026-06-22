@@ -145,6 +145,18 @@
             text-shadow: 0 0 12px rgba(255, 177, 199, 0.25);
             position: relative;
         }
+
+        /* Typing cursor styling */
+        .typing-cursor {
+            color: #ffb1c7;
+            font-weight: 300;
+            animation: blink 0.8s infinite;
+            display: inline-block;
+            margin-left: 2px;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
@@ -200,7 +212,8 @@
                         <span data-i18n="hero.badge">Premium Cleaning Service in the USA</span>
                     </div>
                     <h1 class="font-headline-xl text-headline-xl text-on-surface mb-6 leading-tight shine-glow-title">
-                        <span data-i18n="hero.title1">Your Home,</span> <span class="text-primary shine-accent" data-i18n="hero.title_span">Sparkling Clean &amp; Polished by Poliana</span>
+                        <span data-i18n="hero.title1">Your Home,</span> 
+                        <span id="typing-text" class="text-primary shine-accent"></span><span class="typing-cursor">|</span>
                     </h1>
                     <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg" data-i18n="hero.desc">
                         Professional house cleaning services in the USA with a personal touch you can trust. We transform your home into an impeccable sanctuary.
@@ -652,6 +665,43 @@
             }
         };
 
+        // Typing effect implementation
+        let typingInterval = null;
+        
+        function typeWriter(text, elementId, speed = 50, callback) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            
+            // Clear existing text and any active intervals
+            element.textContent = "";
+            if (typingInterval) clearInterval(typingInterval);
+            
+            let i = 0;
+            typingInterval = setInterval(() => {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typingInterval);
+                    typingInterval = null;
+                    if (callback) callback();
+                }
+            }, speed);
+        }
+
+        function startTypingAnimation(lang) {
+            const titleSpanText = translations[lang]["hero.title_span"];
+            const cursor = document.querySelector('.typing-cursor');
+            if (cursor) cursor.style.display = 'inline-block';
+            
+            typeWriter(titleSpanText, 'typing-text', 40, () => {
+                // Keep cursor blinking for 2 seconds after typing completes, then fade out
+                setTimeout(() => {
+                    if (cursor) cursor.style.display = 'none';
+                }, 2000);
+            });
+        }
+
         // Language toggle implementation
         function setLanguage(lang) {
             document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
@@ -688,6 +738,9 @@
                 selectOptions[1].textContent = translations[lang]["book.form.service_deep"];
                 selectOptions[2].textContent = translations[lang]["book.form.service_move"];
             }
+            
+            // Trigger typewriter animation for main hero tagline
+            startTypingAnimation(lang);
         }
 
         const toggleBtn = document.getElementById('lang-toggle');
